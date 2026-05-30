@@ -1,0 +1,294 @@
+
+.binos-sd-tools.sheet.party .SD-header {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--color-border);
+  flex: none;
+}
+
+.binos-sd-tools.sheet.party .portrait {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+  display: block;
+  cursor: pointer;
+}
+
+.binos-sd-tools.sheet.party .SD-title {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.binos-sd-tools.sheet.party .SD-title input {
+  width: 100%;
+  font-size: 18px;
+  font-family: "Montserrat-SemiBold", sans-serif;
+  background: none;
+  border: none;
+  border-bottom: 1px solid transparent;
+  color: var(--color-text-primary);
+  padding: 2px 0;
+}
+
+.binos-sd-tools.sheet.party .SD-title input:focus {
+  outline: none;
+  border-bottom-color: var(--color-border);
+}
+
+
+
+
+
+
+.sheet.binos-sd-tools.actor.party .window-header button {
+  background: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  text-shadow: none;
+  text-transform: none;
+  letter-spacing: normal;
+  padding: 0;
+  cursor: pointer;
+}
+.binos-sd-tools.sheet.party .binos-sd-tools-logo span {
+  border-bottom: solid 1px white;
+  padding: 0px 10px 0px 10px;
+}
+
+/* Content area */
+.binos-sd-tools.sheet.party .SD-content-body.party-overview {
+  padding: 8px;
+}
+
+/* Remove SD-box default padding so the list rows touch the edges */
+.binos-sd-tools.sheet.party .party-members-box .content.party-members-content {
+  padding: 0;
+}
+
+/* ── Party member list ─────────────────────────────── */
+
+.binos-sd-tools.sheet.party .party-list {
+  font-family: "Montserrat-Medium", sans-serif;
+}
+
+/* Column grid:  order | token | name | class | HP | AC | LVL | XP | Luck | Slots | × */
+.binos-sd-tools.sheet.party .party-list-header,
+.binos-sd-tools.sheet.party .party-list-row {
+  display: grid;
+  grid-template-columns: 36px 44px 1fr 100px 90px 48px 44px 68px 48px 72px 28px;
+  column-gap: 4px;
+  align-items: center;
+  padding: 4px 8px;
+}
+
+/* Header row */
+.binos-sd-tools.sheet.party .party-list-header {
+  font-family: "Old Newspaper Font", serif;
+  font-size: 13px;
+  text-transform: uppercase;
+  background: rgba(0, 0, 0, 0.07);
+  border-bottom: 2px solid var(--color-border);
+  color: var(--color-text-primary);
+  min-height: 28px;
+}
+
+/* Data rows */
+.binos-sd-tools.sheet.party .party-list-row {
+  border-bottom: 1px solid var(--color-border);
+  min-height: 46px;
+  color: var(--color-text-primary);
+  transition: background 0.1s ease;
+}
+.binos-sd-tools.sheet.party .party-list-row:last-child {
+  border-bottom: none;
+}
+.binos-sd-tools.sheet.party .party-list-row:hover {
+  background: var(--background-highlight);
+}
+
+/* Order number + drag handle */
+.binos-sd-tools.sheet.party .col-order {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  padding-right: 2px;
+}
+
+.binos-sd-tools.sheet.party .member-order {
+  font-size: 11px;
+  opacity: 0.4;
+  font-family: "Montserrat-Medium", sans-serif;
+  min-width: 14px;
+  text-align: right;
+}
+
+.binos-sd-tools.sheet.party .drag-handle {
+  font-size: 11px;
+  opacity: 0.25;
+  cursor: grab;
+  flex: none;
+}
+
+.binos-sd-tools.sheet.party .party-list-row:hover .drag-handle {
+  opacity: 0.6;
+}
+
+/* Drag states */
+.binos-sd-tools.sheet.party .party-list-row.dragging {
+  opacity: 0.4;
+}
+
+.binos-sd-tools.sheet.party .party-list-row.drag-over {
+  border-top: 2px solid var(--color-border-highlight, #7eb3ff);
+}
+
+/* Token image */
+.binos-sd-tools.sheet.party .col-portrait img {
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  border-radius: 2px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Character class */
+.binos-sd-tools.sheet.party .col-class {
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Character name */
+.binos-sd-tools.sheet.party .col-name {
+  font-size: 14px;
+  font-family: "Montserrat-SemiBold", sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.binos-sd-tools.sheet.party .col-name a {
+  cursor: pointer;
+}
+.binos-sd-tools.sheet.party .col-name a:hover {
+  text-shadow: 0 0 6px var(--color-shadow-primary, currentColor);
+}
+
+/* Numeric columns */
+.binos-sd-tools.sheet.party .col-hp,
+.binos-sd-tools.sheet.party .col-ac,
+.binos-sd-tools.sheet.party .col-level,
+.binos-sd-tools.sheet.party .col-xp,
+.binos-sd-tools.sheet.party .col-luck,
+.binos-sd-tools.sheet.party .col-slots {
+  text-align: center;
+  font-size: 14px;
+}
+
+/* Remove button */
+.binos-sd-tools.sheet.party .col-remove {
+  text-align: right;
+}
+.binos-sd-tools.sheet.party .col-remove a {
+  color: darkred;
+  opacity: 0.45;
+  transition: opacity 0.15s;
+}
+.binos-sd-tools.sheet.party .col-remove a:hover {
+  opacity: 1;
+  text-shadow: 0 0 6px var(--clickable);
+  font-weight: normal;
+}
+
+/* ── Header action strip (light indicator + deploy) ── */
+
+.binos-sd-tools.sheet.party .party-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ── Active light indicator ────────────────────────── */
+
+.binos-sd-tools.sheet.party .party-light-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  color: darkorange;
+  cursor: default;
+}
+
+.binos-sd-tools.sheet.party .party-light-indicator img {
+  border: none;
+  border-radius: 2px;
+  flex: none;
+}
+
+/* ── Header button strip ───────────────────────────── */
+
+.binos-sd-tools.sheet.party .party-header-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.binos-sd-tools.sheet.party .party-header-buttons button {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* Auto-sync active state */
+.binos-sd-tools.sheet.party .party-autosync-btn.active {
+  color: #7ed99a;
+  border-color: rgba(60, 160, 80, 0.5);
+}
+
+/* Manual light toggle active state */
+.binos-sd-tools.sheet.party .party-light-btn.active {
+  color: darkorange;
+  border-color: rgba(200, 100, 0, 0.4);
+}
+
+/* ── Drop zone (shown when no members) ─────────────── */
+
+.binos-sd-tools.sheet.party .party-drop-zone {
+  margin: 10px;
+  padding: 32px 16px;
+  border: 2px dashed var(--color-border);
+  border-radius: 4px;
+  text-align: center;
+  font-family: "Old Newspaper Font", serif;
+  font-size: 15px;
+  color: var(--color-text-dark-secondary);
+  opacity: 0.5;
+  transition: border-color 0.15s ease, background 0.15s ease, opacity 0.15s ease;
+  pointer-events: all;
+}
+
+.binos-sd-tools.sheet.party .party-drop-zone i {
+  font-size: 32px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.binos-sd-tools.sheet.party .party-drop-zone.dragover,
+.binos-sd-tools.sheet.party .party-drop-zone:hover {
+  border-color: var(--color-border-highlight, #7eb3ff);
+  background: rgba(126, 179, 255, 0.08);
+  opacity: 1;
+}

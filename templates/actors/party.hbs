@@ -1,0 +1,148 @@
+<div class="party-sheet flexcol">
+
+	<header class="SD-header flex0">
+		<img
+			class="portrait"
+			src="{{ actor.img }}"
+			data-edit="img"
+			data-action="editImage"
+			data-tooltip="{{ actor.name }}"
+			height="110"
+			width="110"
+		/>
+		<div class="SD-title">
+			<input
+				name="name"
+				type="text"
+				value="{{ actor.name }}"
+				placeholder="Party Name"
+			/>
+			{{#if editable}}
+			<div class="party-header-buttons">
+				<button
+					type="button"
+					class="party-deploy-btn"
+					data-action="deployToScene"
+					data-tooltip="{{localize 'BINOS.sheet.party.deployToScene'}}"
+				>
+					<i class="fa-solid fa-location-crosshairs"></i>
+					{{localize "BINOS.sheet.party.deployToScene"}}
+				</button>
+				<button
+					type="button"
+					class="party-autosync-btn {{#if autoSyncLight}}active{{/if}}"
+					data-action="toggleAutoSync"
+					data-tooltip="{{localize 'BINOS.sheet.party.autoSyncHint'}}"
+				>
+					<i class="fa-solid fa-rotate"></i>
+					{{#if autoSyncLight}}
+						{{localize "BINOS.sheet.party.autoSyncOn"}}
+					{{else}}
+						{{localize "BINOS.sheet.party.autoSyncOff"}}
+					{{/if}}
+				</button>
+				{{#unless autoSyncLight}}
+				<button
+					type="button"
+					class="party-light-btn {{#if partyHasLight}}active{{/if}}"
+					data-action="togglePartyLight"
+				>
+					<i class="fa-solid fa-fire-flame-curved"></i>
+					{{#if partyHasLight}}
+						{{localize "BINOS.sheet.party.lightTurnOff"}}
+					{{else}}
+						{{localize "BINOS.sheet.party.lightTurnOn"}}
+					{{/if}}
+				</button>
+				{{/unless}}
+			</div>
+			{{/if}}
+		</div>
+	</header>
+
+	<section class="SD-content-body flex1 party-overview">
+
+		<div class="SD-box party-members-box">
+			<div class="header">
+				<label>{{localize "BINOS.sheet.party.members"}}</label>
+				<span class="party-header-actions">
+					{{#if activeLight}}
+					<span
+						class="party-light-indicator"
+						data-tooltip="{{activeLight.actorName}}: {{activeLight.name}}"
+					>
+						<img src="{{activeLight.img}}" width="18" height="18" />
+						<i class="fa-solid fa-fire-flame-curved"></i>
+					</span>
+					{{/if}}
+				</span>
+			</div>
+			<div class="content party-members-content">
+
+				{{#if members.length}}
+					<div class="party-list">
+
+						<div class="party-list-header">
+							<div class="col-order"></div>
+							<div class="col-portrait"></div>
+							<div class="col-name">{{localize "BINOS.sheet.party.col.name"}}</div>
+							<div class="col-class">{{localize "BINOS.sheet.party.col.class"}}</div>
+							<div class="col-hp">{{localize "BINOS.sheet.party.col.hp"}}</div>
+							<div class="col-ac">{{localize "BINOS.sheet.party.col.ac"}}</div>
+							<div class="col-level">{{localize "BINOS.sheet.party.col.level"}}</div>
+							<div class="col-xp">{{localize "BINOS.sheet.party.col.xp"}}</div>
+							<div class="col-luck">{{localize "BINOS.sheet.party.col.luck"}}</div>
+							<div class="col-slots">{{localize "BINOS.sheet.party.col.slots"}}</div>
+							<div class="col-remove"></div>
+						</div>
+
+						{{#each members}}
+						<div class="party-list-row" data-uuid="{{uuid}}" draggable="true">
+							<div class="col-order">
+								<span class="member-order">{{order}}</span>
+								<i class="fa-solid fa-grip-vertical drag-handle"></i>
+							</div>
+							<div class="col-portrait">
+								<img src="{{img}}" alt="{{name}}" />
+							</div>
+							<div class="col-name"><a data-action="openActor">{{name}}</a></div>
+							<div class="col-class">{{characterClass}}</div>
+							<div class="col-hp">{{hp.value}} / {{hp.max}}</div>
+							<div class="col-ac">{{ac}}</div>
+							<div class="col-level">{{level}}</div>
+							<div class="col-xp">{{xp}}</div>
+							<div class="col-luck">
+								{{#if @root.pulpMode}}
+									{{luck.remaining}}
+								{{else if luck.available}}
+									&#10003;
+								{{else}}
+									&#10007;
+								{{/if}}
+							</div>
+							<div class="col-slots">{{slots.used}} / {{slots.max}}</div>
+							<div class="col-remove">
+								{{#if @root.editable}}
+								<a
+									data-action="removeMember"
+									data-tooltip="{{localize 'BINOS.sheet.party.remove'}}"
+								><i class="fas fa-xmark"></i></a>
+								{{/if}}
+							</div>
+						</div>
+						{{/each}}
+
+					</div>
+				{{else}}
+					<div class="party-drop-zone">
+						<i class="fas fa-user-plus"></i>
+						<p>{{localize "BINOS.sheet.party.dropZone"}}</p>
+					</div>
+				{{/if}}
+
+			</div>
+		</div>
+
+	</section>
+
+</div>

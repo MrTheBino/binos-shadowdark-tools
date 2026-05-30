@@ -1,0 +1,52 @@
+<div class="monster-results">
+	{{#if hasSearch}}
+		{{#if monsters.length}}
+			<div class="monster-list">
+				{{#each monsters}}
+				<div class="monster-row" data-uuid="{{uuid}}" draggable="true">
+
+					<img class="monster-portrait" src="{{img}}" alt="{{name}}" />
+
+					<div class="monster-info">
+						<div class="monster-name">
+							<a data-action="openMonster">{{name}}</a>
+						</div>
+
+						<div class="monster-stats">
+							<div class="monster-stat">
+								<span class="stat-label">{{localize "BINOS.monsterBrowser.col.level"}}</span>
+								<span class="stat-value">{{level}}</span>
+							</div>
+							<div class="monster-stat">
+								<span class="stat-label">{{localize "BINOS.monsterBrowser.col.hp"}}</span>
+								<span class="stat-value">{{hp}}</span>
+							</div>
+							<div class="monster-stat">
+								<span class="stat-label">{{localize "BINOS.monsterBrowser.col.ac"}}</span>
+								<span class="stat-value">{{ac}}</span>
+							</div>
+						</div>
+
+						{{#if notes}}
+						<div class="monster-notes">{{{notes}}}</div>
+						{{/if}}
+
+						<div class="monster-source">{{source}}</div>
+					</div>
+
+				</div>
+				{{/each}}
+			</div>
+		{{else}}
+			<div class="monster-browser-notice">
+				<i class="fas fa-times-circle"></i>
+				<p>{{localize "BINOS.monsterBrowser.noResults"}}</p>
+			</div>
+		{{/if}}
+	{{else}}
+		<div class="monster-browser-notice">
+			<i class="fas fa-dragon"></i>
+			<p>{{localize "BINOS.monsterBrowser.hint"}}</p>
+		</div>
+	{{/if}}
+</div>

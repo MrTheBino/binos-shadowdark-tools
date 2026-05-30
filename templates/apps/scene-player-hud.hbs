@@ -1,0 +1,34 @@
+<div class="scene-hud-characters">
+	{{#each players}}
+	<div class="scene-hud-character" data-token-id="{{tokenId}}" data-uuid="{{uuid}}">
+
+		<div class="scene-hud-portrait">
+			<img src="{{img}}" alt="{{name}}" />
+		</div>
+
+		<div class="scene-hud-info">
+			<div class="scene-hud-name-row">
+				<span class="scene-hud-name">{{name}}</span>
+				<span class="scene-hud-ac" data-tooltip="Armor Class">
+					<i class="fa-solid fa-shield-halved"></i> {{ac}}
+				</span>
+			</div>
+			<div class="scene-hud-health">
+				<div class="bar-wrapper">
+					<div class="bar {{hpStatus}}" style="width: {{hpPercent}}%"></div>
+					<input
+						type="text"
+						class="scene-hud-hp-input"
+						data-value="{{hpValue}}"
+						data-uuid="{{uuid}}"
+						value="{{hpValue}}"
+					/>
+					<span class="scene-hud-divider">/</span>
+					<input type="text" value="{{hpMax}}" disabled />
+				</div>
+			</div>
+		</div>
+
+	</div>
+	{{/each}}
+</div>

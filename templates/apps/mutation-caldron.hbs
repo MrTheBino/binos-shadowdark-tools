@@ -1,0 +1,158 @@
+<div class="caldron-wrapper">
+
+	<div class="caldron-content">
+
+		<!-- Left panel: selected scene NPCs -->
+		<div class="caldron-panel">
+			<div class="caldron-panel-header">
+				<i class="fas fa-users"></i>
+				{{localize "BINOS.mutationCaldron.panelNPCs"}}
+			</div>
+			{{#if tokens.length}}
+				<div class="caldron-list">
+					{{#each tokens}}
+					<div class="caldron-row" data-token-id="{{id}}">
+						<img class="caldron-portrait" src="{{img}}" alt="{{name}}" />
+						<span class="caldron-name">{{name}}</span>
+					</div>
+					{{/each}}
+				</div>
+			{{else}}
+				<div class="caldron-empty">
+					<i class="fas fa-street-view"></i>
+					<p>{{localize "BINOS.mutationCaldron.emptyNPCs"}}</p>
+				</div>
+			{{/if}}
+		</div>
+
+		<div class="caldron-divider"></div>
+
+		<!-- Right panel: world mutation items -->
+		<div class="caldron-panel">
+			<div class="caldron-panel-header">
+				<i class="fas fa-flask"></i>
+				{{localize "BINOS.mutationCaldron.panelMutations"}}
+			</div>
+			{{#if mutations.length}}
+				<div class="mutations-list">
+					{{#each mutations}}
+					<div class="mutation-card" data-item-id="{{id}}">
+
+						<div class="mutation-card-header">
+							<input type="checkbox" class="mutation-checkbox" data-item-id="{{id}}" />
+							<img class="mutation-card-img" src="{{img}}" alt="{{name}}" />
+							<span class="mutation-card-name">{{name}}</span>
+						</div>
+
+						{{#if hasStats}}
+						<div class="mutation-card-stats">
+							{{#if bonusAC}}
+							<span class="mutation-stat stat-ac" data-tooltip="{{localize 'BINOS.item.mutation.bonusAC'}}">
+								<i class="fa-solid fa-shield-halved"></i> {{bonusAC}}
+							</span>
+							{{/if}}
+							{{#if bonusDamage}}
+							<span class="mutation-stat stat-dmg" data-tooltip="{{localize 'BINOS.item.mutation.bonusDamage'}}">
+								<i class="fa-solid fa-fire-flame-curved"></i> {{bonusDamage}}
+							</span>
+							{{/if}}
+							{{#if bonusAttacks}}
+							<span class="mutation-stat stat-atk" data-tooltip="{{localize 'BINOS.item.mutation.bonusAttacks'}}">
+								<i class="fa-solid fa-crosshairs"></i> {{bonusAttacks}}
+							</span>
+							{{/if}}
+							{{#if bonusLVL}}
+							<span class="mutation-stat stat-lvl" data-tooltip="{{localize 'BINOS.item.mutation.bonusLVL'}}">
+								<i class="fa-solid fa-star"></i> {{bonusLVL}}
+							</span>
+							{{/if}}
+							{{#if bonusHP}}
+							<span class="mutation-stat stat-hp" data-tooltip="{{localize 'BINOS.item.mutation.bonusHP'}}">
+								<i class="fa-solid fa-heart"></i> {{bonusHP}}
+							</span>
+							{{/if}}
+							{{#if bonusHit}}
+							<span class="mutation-stat stat-hit" data-tooltip="{{localize 'BINOS.item.mutation.bonusHit'}}">
+								<i class="fa-solid fa-bullseye"></i> {{bonusHit}}
+							</span>
+							{{/if}}
+						</div>
+						{{/if}}
+
+						{{#if hasAbilities}}
+						<div class="mutation-card-abilities">
+							{{#if bonusSTR}}<span class="mutation-ability-chip" data-tooltip="{{localize 'BINOS.item.mutation.bonusSTR'}}">STR {{bonusSTR}}</span>{{/if}}
+							{{#if bonusDEX}}<span class="mutation-ability-chip" data-tooltip="{{localize 'BINOS.item.mutation.bonusDEX'}}">DEX {{bonusDEX}}</span>{{/if}}
+							{{#if bonusCON}}<span class="mutation-ability-chip" data-tooltip="{{localize 'BINOS.item.mutation.bonusCON'}}">CON {{bonusCON}}</span>{{/if}}
+							{{#if bonusINT}}<span class="mutation-ability-chip" data-tooltip="{{localize 'BINOS.item.mutation.bonusINT'}}">INT {{bonusINT}}</span>{{/if}}
+							{{#if bonusWIS}}<span class="mutation-ability-chip" data-tooltip="{{localize 'BINOS.item.mutation.bonusWIS'}}">WIS {{bonusWIS}}</span>{{/if}}
+							{{#if bonusCHA}}<span class="mutation-ability-chip" data-tooltip="{{localize 'BINOS.item.mutation.bonusCHA'}}">CHA {{bonusCHA}}</span>{{/if}}
+						</div>
+						{{/if}}
+
+						{{#if features.length}}
+						<div class="mutation-card-items">
+							<span class="mutation-items-label">
+								<i class="fa-solid fa-star"></i>
+							</span>
+							<div class="mutation-item-chips">
+								{{#each features}}
+								<span class="mutation-item-chip">
+									<img src="{{img}}" width="14" height="14" />
+									{{name}}
+								</span>
+								{{/each}}
+							</div>
+						</div>
+						{{/if}}
+
+						{{#if specialAttacks.length}}
+						<div class="mutation-card-items">
+							<span class="mutation-items-label">
+								<i class="fa-solid fa-skull"></i>
+							</span>
+							<div class="mutation-item-chips">
+								{{#each specialAttacks}}
+								<span class="mutation-item-chip">
+									<img src="{{img}}" width="14" height="14" />
+									{{name}}
+								</span>
+								{{/each}}
+							</div>
+						</div>
+						{{/if}}
+
+					</div>
+					{{/each}}
+				</div>
+			{{else}}
+				<div class="caldron-empty">
+					<i class="fas fa-box-open"></i>
+					<p>{{localize "BINOS.mutationCaldron.emptyMutations"}}</p>
+				</div>
+			{{/if}}
+		</div>
+
+	</div>
+
+	<div class="caldron-footer">
+		<div class="caldron-random-controls">
+			<input
+				type="number"
+				class="random-count-input"
+				min="1"
+				value="1"
+				data-tooltip="{{localize 'BINOS.mutationCaldron.randomCount'}}"
+			/>
+			<button type="button" data-action="applyRandomMutations">
+				<i class="fa-solid fa-shuffle"></i>
+				{{localize "BINOS.mutationCaldron.applyRandom"}}
+			</button>
+		</div>
+		<button type="button" data-action="applyMutations">
+			<i class="fas fa-flask"></i>
+			{{localize "BINOS.mutationCaldron.applyMutations"}}
+		</button>
+	</div>
+
+</div>

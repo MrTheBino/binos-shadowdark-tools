@@ -1,0 +1,99 @@
+{
+  "TYPES": {
+    "Actor": {
+      "binos-shadowdark-tools": {
+        "Party": "Party"
+      }
+    },
+    "Item": {
+      "binos-shadowdark-tools": {
+        "Mutation": "Mutation"
+      }
+    }
+  },
+  "BINOS": {
+    "settings": {
+      "autoSyncPartyLight": {
+        "name": "Party Light Auto-Sync",
+        "hint": "Automatically sync the party token's light to the active light source carried by any party member."
+      }
+    },
+    "monsterBrowser": {
+      "title": "Monster Browser",
+      "searchPlaceholder": "Search monsters… (min. 3 characters)",
+      "hint": "Enter at least 3 characters to search world actors and compendiums.",
+      "noResults": "No monsters found matching your search.",
+      "col": {
+        "name": "Name",
+        "level": "LVL",
+        "hp": "HP",
+        "ac": "AC",
+        "source": "Source"
+      }
+    },
+    "sheet": {
+      "party": {
+        "title": "Party Sheet",
+        "members": "Party Members",
+        "empty": "Drop characters onto this sheet to add them to the party.",
+        "remove": "Remove from Party",
+      "dropZone": "Drop player actors here to add them to the party",
+      "deployToScene": "Deploy to Scene",
+      "deployNoScene": "No active scene.",
+      "deployNoToken": "Place the party token on the scene first.",
+      "autoSyncOn": "Light Sync: On",
+      "autoSyncOff": "Light Sync: Off",
+      "autoSyncHint": "Toggle automatic synchronization of light sources from party members",
+      "lightTurnOn": "Turn On Light",
+      "lightTurnOff": "Turn Off Light",
+        "col": {
+          "name": "Name",
+          "class": "Class",
+          "hp": "HP",
+          "ac": "AC",
+          "level": "LVL",
+          "xp": "XP",
+          "luck": "Luck",
+          "slots": "Slots"
+        }
+      },
+      "mutation": {
+        "title": "Mutation"
+      }
+    },
+    "mutationCaldron": {
+      "title": "Mutation Caldron",
+      "panelNPCs": "Selected NPCs",
+      "panelMutations": "Mutations",
+      "emptyNPCs": "Select NPC tokens on the scene.",
+      "emptyMutations": "No Mutation items found in the world.",
+      "applyMutations": "Apply Mutations",
+      "applyRandom": "Apply Random",
+      "randomCount": "Number of random mutations per NPC"
+    },
+    "item": {
+      "mutation": {
+        "namePlaceholder": "Mutation Name",
+        "sectionCombat": "Combat",
+        "sectionAbilities": "Ability Scores",
+        "bonusAC": "Bonus AC",
+        "bonusDamage": "Bonus Damage",
+        "bonusAttacks": "Bonus Attacks",
+        "bonusLVL": "Bonus LVL",
+        "bonusHP": "Bonus HP",
+        "bonusHit": "Bonus Hit",
+        "bonusSTR": "STR",
+        "bonusDEX": "DEX",
+        "bonusCON": "CON",
+        "bonusINT": "INT",
+        "bonusWIS": "WIS",
+        "bonusCHA": "CHA",
+        "description": "Description",
+        "features": "NPC Features",
+        "dropFeatureHint": "Drop NPC Feature items here",
+        "specialAttacks": "NPC Special Attacks",
+        "dropSpecialAttackHint": "Drop NPC Special Attack items here"
+      }
+    }
+  }
+}

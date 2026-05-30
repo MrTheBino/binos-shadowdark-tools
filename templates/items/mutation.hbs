@@ -1,0 +1,132 @@
+<div class="mutation-sheet">
+
+	<header class="mutation-header">
+		<img
+			class="mutation-img"
+			src="{{item.img}}"
+			data-edit="img"
+			data-tooltip="{{item.name}}"
+			width="52"
+			height="52"
+		/>
+		<input
+			class="mutation-name"
+			type="text"
+			name="name"
+			value="{{item.name}}"
+			placeholder="{{localize 'BINOS.item.mutation.namePlaceholder'}}"
+		/>
+	</header>
+
+	<div class="mutation-body">
+
+		<div class="mutation-section-label">{{localize "BINOS.item.mutation.sectionCombat"}}</div>
+		<div class="mutation-field">
+			<label>{{localize "BINOS.item.mutation.bonusAC"}}</label>
+			<input type="number" name="system.bonusAC" value="{{system.bonusAC}}" />
+		</div>
+		<div class="mutation-field">
+			<label>{{localize "BINOS.item.mutation.bonusDamage"}}</label>
+			<input type="text" name="system.bonusDamage" value="{{system.bonusDamage}}" placeholder="e.g. 1d4" />
+		</div>
+		<div class="mutation-field">
+			<label>{{localize "BINOS.item.mutation.bonusAttacks"}}</label>
+			<input type="number" name="system.bonusAttacks" value="{{system.bonusAttacks}}" />
+		</div>
+		<div class="mutation-field">
+			<label>{{localize "BINOS.item.mutation.bonusLVL"}}</label>
+			<input type="number" name="system.bonusLVL" value="{{system.bonusLVL}}" />
+		</div>
+		<div class="mutation-field">
+			<label>{{localize "BINOS.item.mutation.bonusHP"}}</label>
+			<input type="number" name="system.bonusHP" value="{{system.bonusHP}}" />
+		</div>
+		<div class="mutation-field">
+			<label>{{localize "BINOS.item.mutation.bonusHit"}}</label>
+			<input type="number" name="system.bonusHit" value="{{system.bonusHit}}" />
+		</div>
+
+		<div class="mutation-section-label">{{localize "BINOS.item.mutation.sectionAbilities"}}</div>
+		<div class="mutation-ability-grid">
+			<div class="mutation-ability">
+				<label>{{localize "BINOS.item.mutation.bonusSTR"}}</label>
+				<input type="number" name="system.bonusSTR" value="{{system.bonusSTR}}" />
+			</div>
+			<div class="mutation-ability">
+				<label>{{localize "BINOS.item.mutation.bonusDEX"}}</label>
+				<input type="number" name="system.bonusDEX" value="{{system.bonusDEX}}" />
+			</div>
+			<div class="mutation-ability">
+				<label>{{localize "BINOS.item.mutation.bonusCON"}}</label>
+				<input type="number" name="system.bonusCON" value="{{system.bonusCON}}" />
+			</div>
+			<div class="mutation-ability">
+				<label>{{localize "BINOS.item.mutation.bonusINT"}}</label>
+				<input type="number" name="system.bonusINT" value="{{system.bonusINT}}" />
+			</div>
+			<div class="mutation-ability">
+				<label>{{localize "BINOS.item.mutation.bonusWIS"}}</label>
+				<input type="number" name="system.bonusWIS" value="{{system.bonusWIS}}" />
+			</div>
+			<div class="mutation-ability">
+				<label>{{localize "BINOS.item.mutation.bonusCHA"}}</label>
+				<input type="number" name="system.bonusCHA" value="{{system.bonusCHA}}" />
+			</div>
+		</div>
+
+	</div>
+
+	<div class="mutation-features">
+		<label>{{localize "BINOS.item.mutation.features"}}</label>
+		<ul class="mutation-feature-list">
+			{{#each features}}
+			<li class="mutation-feature-entry" data-uuid="{{uuid}}">
+				<img src="{{img}}" width="24" height="24" />
+				<span class="feature-name">{{name}}</span>
+				<a data-action="removeFeature" data-uuid="{{uuid}}" data-tooltip="Remove">
+					<i class="fa-solid fa-times"></i>
+				</a>
+			</li>
+			{{/each}}
+			{{#unless features}}
+			<li class="mutation-feature-drop-hint">{{localize "BINOS.item.mutation.dropFeatureHint"}}</li>
+			{{/unless}}
+		</ul>
+	</div>
+
+	<div class="mutation-features">
+		<label>{{localize "BINOS.item.mutation.specialAttacks"}}</label>
+		<ul class="mutation-feature-list">
+			{{#each specialAttacks}}
+			<li class="mutation-feature-entry" data-uuid="{{uuid}}">
+				<img src="{{img}}" width="24" height="24" />
+				<span class="feature-name">{{name}}</span>
+				<a data-action="removeSpecialAttack" data-uuid="{{uuid}}" data-tooltip="Remove">
+					<i class="fa-solid fa-times"></i>
+				</a>
+			</li>
+			{{/each}}
+			{{#unless specialAttacks}}
+			<li class="mutation-feature-drop-hint">{{localize "BINOS.item.mutation.dropSpecialAttackHint"}}</li>
+			{{/unless}}
+		</ul>
+	</div>
+
+	<div class="mutation-description">
+		<div class="mutation-section-label">{{localize "BINOS.item.mutation.description"}}</div>
+		{{#if editable}}
+		<prose-mirror
+			name="system.description"
+			button="true"
+			editable="{{editable}}"
+			toggled="false"
+			value="{{system.description}}"
+		>
+			{{{descriptionHTML}}}
+		</prose-mirror>
+		{{else}}
+		{{{descriptionHTML}}}
+		{{/if}}
+	</div>
+
+</div>

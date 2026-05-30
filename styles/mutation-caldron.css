@@ -1,0 +1,324 @@
+
+.binos-sd-tools.mutation-caldron .window-content {
+  padding: 0;
+}
+
+.binos-sd-tools.mutation-caldron .caldron-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+
+.binos-sd-tools.mutation-caldron .caldron-content {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.binos-sd-tools.mutation-caldron .caldron-panel {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.binos-sd-tools.mutation-caldron .caldron-divider {
+  width: 1px;
+  background: var(--color-border);
+  flex: none;
+}
+
+
+.binos-sd-tools.mutation-caldron .caldron-panel-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-primary);
+  opacity: 0.6;
+  border-bottom: 1px solid var(--color-border);
+  flex: none;
+}
+
+/* ── Scrollable lists ───────────────────────────────── */
+
+.binos-sd-tools.mutation-caldron .caldron-list,
+.binos-sd-tools.mutation-caldron .mutations-list {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+/* ── NPC rows (portrait | name) ─────────────────────── */
+
+.binos-sd-tools.mutation-caldron .caldron-list .caldron-row {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  column-gap: 8px;
+}
+
+/* ── Mutation cards ─────────────────────────────────── */
+
+.binos-sd-tools.mutation-caldron .mutation-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 7px 10px;
+  border-bottom: 1px solid var(--color-border);
+  transition: background 0.1s ease;
+}
+
+.binos-sd-tools.mutation-caldron .mutation-card:last-child {
+  border-bottom: none;
+}
+
+.binos-sd-tools.mutation-caldron .mutation-card:hover {
+  background: var(--background-highlight, rgba(255, 255, 255, 0.05));
+}
+
+.binos-sd-tools.mutation-caldron .mutation-card-header {
+  display: grid;
+  grid-template-columns: 18px 32px 1fr;
+  align-items: center;
+  column-gap: 8px;
+}
+
+.binos-sd-tools.mutation-caldron .mutation-card-img {
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+  border-radius: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  display: block;
+}
+
+.binos-sd-tools.mutation-caldron .mutation-card-name {
+  font-size: 13px;
+  font-family: "Montserrat-SemiBold", sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── Stat chips ─────────────────────────────────────── */
+
+.binos-sd-tools.mutation-caldron .mutation-card-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding-left: 58px;
+}
+
+.binos-sd-tools.mutation-caldron .mutation-stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 2px 7px;
+  border-radius: 10px;
+  line-height: 1.4;
+}
+
+.binos-sd-tools.mutation-caldron .mutation-stat i {
+  font-size: 10px;
+  opacity: 0.8;
+}
+
+.binos-sd-tools.mutation-caldron .mutation-stat.stat-ac {
+  background: rgba(60, 100, 200, 0.18);
+  color: #7eb3ff;
+  border: 1px solid rgba(60, 100, 200, 0.3);
+}
+
+.binos-sd-tools.mutation-caldron .mutation-stat.stat-dmg {
+  background: rgba(200, 60, 40, 0.18);
+  color: #ff8c75;
+  border: 1px solid rgba(200, 60, 40, 0.3);
+}
+
+.binos-sd-tools.mutation-caldron .mutation-stat.stat-atk {
+  background: rgba(60, 160, 80, 0.18);
+  color: #7ed99a;
+  border: 1px solid rgba(60, 160, 80, 0.3);
+}
+
+.binos-sd-tools.mutation-caldron .mutation-stat.stat-lvl {
+  background: rgba(140, 80, 200, 0.18);
+  color: #c49cff;
+  border: 1px solid rgba(140, 80, 200, 0.3);
+}
+
+.binos-sd-tools.mutation-caldron .mutation-stat.stat-hp {
+  background: rgba(200, 60, 100, 0.18);
+  color: #ff8aaa;
+  border: 1px solid rgba(200, 60, 100, 0.3);
+}
+
+.binos-sd-tools.mutation-caldron .mutation-stat.stat-hit {
+  background: rgba(200, 150, 40, 0.18);
+  color: #ffd07a;
+  border: 1px solid rgba(200, 150, 40, 0.3);
+}
+
+/* ── Linked item rows (icon label + chips) ──────────── */
+
+.binos-sd-tools.mutation-caldron .mutation-card-items {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  padding-left: 58px;
+}
+
+.binos-sd-tools.mutation-caldron .mutation-items-label {
+  font-size: 10px;
+  opacity: 0.45;
+  flex: none;
+  padding-top: 3px;
+}
+
+.binos-sd-tools.mutation-caldron .mutation-item-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+
+.binos-sd-tools.mutation-caldron .mutation-item-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  padding: 1px 6px;
+  border-radius: 3px;
+  background: var(--color-bg-option, rgba(255,255,255,0.06));
+  border: 1px solid var(--color-border);
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 140px;
+  text-overflow: ellipsis;
+}
+
+.binos-sd-tools.mutation-caldron .mutation-item-chip img {
+  border: none;
+  flex: none;
+  border-radius: 2px;
+}
+
+/* ── Ability score chips ────────────────────────────── */
+
+.binos-sd-tools.mutation-caldron .mutation-card-abilities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding-left: 58px;
+}
+
+.binos-sd-tools.mutation-caldron .mutation-ability-chip {
+  display: inline-flex;
+  align-items: center;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 2px 7px;
+  border-radius: 10px;
+  line-height: 1.4;
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--color-text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* ── Shared row styles ──────────────────────────────── */
+
+.binos-sd-tools.mutation-caldron .caldron-row {
+  align-items: center;
+  padding: 5px 10px;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text-primary);
+  transition: background 0.1s ease;
+}
+
+.binos-sd-tools.mutation-caldron .caldron-row:last-child {
+  border-bottom: none;
+}
+
+.binos-sd-tools.mutation-caldron .caldron-row:hover {
+  background: var(--background-highlight, rgba(255, 255, 255, 0.05));
+}
+
+.binos-sd-tools.mutation-caldron .caldron-portrait {
+  width: 36px;
+  height: 36px;
+  object-fit: cover;
+  border-radius: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  display: block;
+}
+
+.binos-sd-tools.mutation-caldron .caldron-name {
+  font-size: 13px;
+  font-family: "Montserrat-SemiBold", sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── Footer ─────────────────────────────────────────── */
+
+.binos-sd-tools.mutation-caldron .caldron-footer {
+  flex: none;
+  padding: 8px 12px;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.binos-sd-tools.mutation-caldron .caldron-random-controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.binos-sd-tools.mutation-caldron .random-count-input {
+  width: 52px;
+  text-align: center;
+  padding: 4px 6px;
+}
+
+.binos-sd-tools.mutation-caldron .caldron-footer button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 16px;
+  cursor: pointer;
+}
+
+/* ── Empty state ────────────────────────────────────── */
+
+.binos-sd-tools.mutation-caldron .caldron-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  gap: 0.5rem;
+  opacity: 0.4;
+  padding: 1.5rem;
+  text-align: center;
+  color: var(--color-text-primary);
+  font-size: 12px;
+}
+
+.binos-sd-tools.mutation-caldron .caldron-empty i {
+  font-size: 2rem;
+}

@@ -1,0 +1,176 @@
+.binos-sd-tools.monster-browser .window-content {
+  padding: 0;
+}
+
+.binos-sd-tools.monster-browser .monster-results {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0; /* prevents flex item from expanding beyond its container */
+  overflow: hidden;
+}
+
+.binos-sd-tools.monster-browser .monster-browser-search {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--color-border);
+  flex: 0 0 auto;
+}
+
+.binos-sd-tools.monster-browser .monster-browser-search i {
+  color: var(--color-text-primary);
+  opacity: 0.5;
+  flex: none;
+}
+
+.binos-sd-tools.monster-browser .monster-search {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  font-family: var(--font-primary);
+  font-size: var(--font-size-14, 14px);
+  color: var(--color-text-primary);
+}
+
+.binos-sd-tools.monster-browser .monster-search::placeholder {
+  color: var(--color-text-primary);
+  opacity: 0.45;
+}
+
+
+
+.binos-sd-tools.monster-browser .monster-list {
+  flex: 1;
+  min-height: 0; /* allows the list to shrink and scroll within its flex parent */
+  overflow-y: auto;
+}
+
+
+.binos-sd-tools.monster-browser .monster-row {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  column-gap: 12px;
+  align-items: start;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text-primary);
+  transition: background 0.1s ease;
+}
+
+.binos-sd-tools.monster-browser .monster-row:last-child {
+  border-bottom: none;
+}
+
+.binos-sd-tools.monster-browser .monster-row:hover {
+  background: var(--background-highlight, rgba(255, 255, 255, 0.05));
+}
+
+
+.binos-sd-tools.monster-browser .monster-portrait {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  display: block;
+  margin-top: 2px;
+}
+
+
+
+.binos-sd-tools.monster-browser .monster-info {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 4px;
+  min-width: 0;
+}
+
+/* Name */
+
+.binos-sd-tools.monster-browser .monster-name {
+  font-size: 15px;
+  font-family: "Montserrat-SemiBold", sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.binos-sd-tools.monster-browser .monster-name a {
+  cursor: pointer;
+}
+
+.binos-sd-tools.monster-browser .monster-name a:hover {
+  text-shadow: 0 0 6px var(--color-shadow-primary, currentColor);
+}
+
+
+
+.binos-sd-tools.monster-browser .monster-stats {
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+  column-gap: 20px;
+}
+
+.binos-sd-tools.monster-browser .monster-stat {
+  display: grid;
+  grid-template-rows: auto auto;
+  row-gap: 1px;
+  text-align: center;
+}
+
+.binos-sd-tools.monster-browser .stat-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  opacity: 0.5;
+  line-height: 1;
+}
+
+.binos-sd-tools.monster-browser .stat-value {
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 1.1;
+}
+
+/* Notes / description */
+
+.binos-sd-tools.monster-browser .monster-notes {
+  font-size: 12px;
+  line-height: 1.45;
+  opacity: 0.8;
+}
+
+.binos-sd-tools.monster-browser .monster-notes p {
+  margin: 0;
+}
+
+/* Source */
+
+.binos-sd-tools.monster-browser .monster-source {
+  font-size: 11px;
+  opacity: 0.45;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.binos-sd-tools.monster-browser .monster-browser-notice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  gap: 0.5rem;
+  color: var(--color-text-primary);
+  opacity: 0.45;
+  padding: 2rem;
+  text-align: center;
+}
+
+.binos-sd-tools.monster-browser .monster-browser-notice i {
+  font-size: 2.5rem;
+}
