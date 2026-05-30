@@ -30,3 +30,10 @@ To open the Monster Browser use this code for a macro:
 Apply mutations (a new item type) to selected NPCs on the current scene.
 
     game.binosShadowdarkTools.MutationCauldronSD.open();
+
+
+## Installation
+
+Link for manual module installation
+
+    https://github.com/MrTheBino/binos-shadowdark-tools/releases/latest/download/module.json
